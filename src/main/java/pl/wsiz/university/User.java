@@ -5,7 +5,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class User implements Serializable {
+public abstract class User implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
@@ -38,13 +38,13 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return firstName + ' ' +  lastName;
     }
 
     public String getPassword() {
         return password;
     }
+
+    public abstract String getRole();
+
 }

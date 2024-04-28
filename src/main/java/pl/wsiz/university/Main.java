@@ -10,16 +10,18 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        User user1 = new User("Adam", "Nowak", "adam@mail.com", "adam123", LocalDate.of(1990, 12, 20));
-        User user2 = new User("Iwona", "Nowak", "iwona@mail.com", "iwona@33", LocalDate.of(1992, 11, 10));
+        Student student1 = new Student("Adam", "Nowak", "adam@mail.com", "adam123", LocalDate.of(1990, 12, 20), 95412);
+        Teacher teacher1 = new Teacher("Iwona", "Nowak", "iwona@mail.com", "iwona@33", LocalDate.of(1992, 11, 10), "dr. inż.");
+        Administrator administrator1 = new Administrator("Janusz", "Polak", "janusz@mail.com", "janusz", LocalDate.of(1993, 11, 13));
 
         //System.out.println(user1);
         //System.out.println(user2);
         //printUser(user1);
 
         FileUserRepository repository = new FileUserRepository();
-        repository.insert(user1);
-        repository.insert(user2);
+        repository.insert(student1);
+        repository.insert(teacher1);
+        repository.insert(administrator1);
 //        System.out.println(repository.findAll());
         List<User> users = repository.findAll();
 //        System.out.println(users);
@@ -27,7 +29,7 @@ public class Main {
         LoginView loginView = new LoginView(repository);
         User loggedUser = loginView.login();
 
-        System.out.println(loggedUser);
+        printUser(loggedUser);
     }
 
     public static void printUser(User user) {
@@ -35,6 +37,17 @@ public class Main {
         System.out.println("Imię i nazwisko: " + user.getFirstName() + " " + user.getLastName());
         System.out.println("Adres email: " + user.getEmail());
         System.out.println("Data urodzenia: " + user.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd MMMM uuuu")));
+        System.out.println("Rola: " + user.getRole());
+//        String rola = user.getClass().getName();
+//
+//        if (user instanceof  Administrator) {
+//            System.out.println("Rola: Administrator");
+//        } else if (user instanceof Student) {
+//            System.out.println("Rola: Student");
+//        } else if (user instanceof Teacher) {
+//            System.out.println("Rola: Nauczyciel");
+//        }
+
         System.out.println("-".repeat(35));
     }
 }
