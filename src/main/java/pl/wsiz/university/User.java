@@ -1,5 +1,7 @@
 package pl.wsiz.university;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -14,7 +16,7 @@ public class User implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -40,5 +42,9 @@ public class User implements Serializable {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

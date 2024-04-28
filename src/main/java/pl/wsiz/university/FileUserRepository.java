@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public class FileUserRepository implements UserRepository {
     @Override
@@ -32,6 +33,26 @@ public class FileUserRepository implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        return new ArrayList<>();
+        File file = new File("users.bin");
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            return new ArrayList<>();
+        }
+        ObjectInputStream objectInputStream = null;
+        try {
+            objectInputStream = new ObjectInputStream(fileInputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Object object = null;
+        try {
+            object = objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        List<User> users = (List) object;
+        return users;
     }
 }

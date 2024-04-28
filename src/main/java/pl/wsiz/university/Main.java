@@ -2,6 +2,9 @@ package pl.wsiz.university;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -12,12 +15,19 @@ public class Main {
 
         //System.out.println(user1);
         //System.out.println(user2);
-        printUser(user1);
+        //printUser(user1);
 
         FileUserRepository repository = new FileUserRepository();
         repository.insert(user1);
         repository.insert(user2);
-        System.out.println(repository.findAll());
+//        System.out.println(repository.findAll());
+        List<User> users = repository.findAll();
+//        System.out.println(users);
+
+        LoginView loginView = new LoginView(repository);
+        User loggedUser = loginView.login();
+
+        System.out.println(loggedUser);
     }
 
     public static void printUser(User user) {
