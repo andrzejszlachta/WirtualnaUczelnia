@@ -19,9 +19,9 @@ public class Main {
         //printUser(user1);
 
         FileUserRepository repository = new FileUserRepository();
-        repository.insert(student1);
-        repository.insert(teacher1);
-        repository.insert(administrator1);
+       // repository.insert(student1);
+        //repository.insert(teacher1);
+        //repository.insert(administrator1);
 //        System.out.println(repository.findAll());
         List<User> users = repository.findAll();
 //        System.out.println(users);
@@ -30,6 +30,11 @@ public class Main {
         User loggedUser = loginView.login();
 
         printUser(loggedUser);
+
+        if (loggedUser instanceof Administrator) {
+            AdministratorMenuView menu = new AdministratorMenuView(repository);
+            menu.initialize();
+        }
     }
 
     public static void printUser(User user) {
