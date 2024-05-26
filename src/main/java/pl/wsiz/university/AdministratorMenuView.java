@@ -21,6 +21,10 @@ public class AdministratorMenuView {
             chosen = scanner.nextInt();
             if (chosen == AdministratorMenuItem.USERS_LIST.getNr()) {
                 new UserListView(userRepository).initialize();
+            } else if (chosen == AdministratorMenuItem.NEW_STUDENT.getNr()) {
+                new StudentAddView(userRepository).initialize();
+            } else if (chosen == AdministratorMenuItem.NEW_TEACHER.getNr()) {
+                new TeacherAddView(userRepository).initialize();
             }
         } while (chosen != AdministratorMenuItem.EXIT.getNr());
 

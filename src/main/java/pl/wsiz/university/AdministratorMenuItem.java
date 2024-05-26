@@ -2,7 +2,9 @@ package pl.wsiz.university;
 
 public enum AdministratorMenuItem {
     USERS_LIST(1, "lista użytkowników"),
-    EXIT(2, "wyjście z programu");
+    NEW_STUDENT(2, "dodaj nowego studenta"),
+    NEW_TEACHER(3, "dodaj nowego nauczyciela"),
+    EXIT(4, "wyjście z programu");
 
     private int nr;
     private String description;
