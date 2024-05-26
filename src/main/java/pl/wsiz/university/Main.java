@@ -1,10 +1,16 @@
 package pl.wsiz.university;
 
+import pl.wsiz.university.administrator.Administrator;
+import pl.wsiz.university.administrator.AdministratorMenuView;
+import pl.wsiz.university.student.Student;
+import pl.wsiz.university.teacher.Teacher;
+import pl.wsiz.university.user.FileUserRepository;
+import pl.wsiz.university.user.LoginView;
+import pl.wsiz.university.user.User;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -19,7 +25,7 @@ public class Main {
         //printUser(user1);
 
         FileUserRepository repository = new FileUserRepository();
-       // repository.insert(student1);
+        //repository.insert(student1);
         //repository.insert(teacher1);
         //repository.insert(administrator1);
 //        System.out.println(repository.findAll());

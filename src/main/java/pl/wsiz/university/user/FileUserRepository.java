@@ -1,10 +1,8 @@
-package pl.wsiz.university;
+package pl.wsiz.university.user;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 
 public class FileUserRepository implements UserRepository {
     @Override

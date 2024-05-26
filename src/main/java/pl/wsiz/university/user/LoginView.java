@@ -1,9 +1,8 @@
-package pl.wsiz.university;
+package pl.wsiz.university.user;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class LoginView {

@@ -1,4 +1,4 @@
-package pl.wsiz.university;
+package pl.wsiz.university.user;
 
 import org.mindrot.jbcrypt.BCrypt;
 

@@ -1,4 +1,9 @@
-package pl.wsiz.university;
+package pl.wsiz.university.administrator;
+
+import pl.wsiz.university.student.StudentAddView;
+import pl.wsiz.university.teacher.TeacherAddView;
+import pl.wsiz.university.user.UserListView;
+import pl.wsiz.university.user.UserRepository;
 
 import java.util.Scanner;
 

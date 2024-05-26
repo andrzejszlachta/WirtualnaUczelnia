@@ -1,4 +1,6 @@
-package pl.wsiz.university;
+package pl.wsiz.university.teacher;
+
+import pl.wsiz.university.user.User;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,7 @@
 package pl.wsiz.university;
 
 import org.junit.jupiter.api.Test;
+import pl.wsiz.university.user.UserListView;
 
 import static org.junit.jupiter.api.Assertions.*;
 

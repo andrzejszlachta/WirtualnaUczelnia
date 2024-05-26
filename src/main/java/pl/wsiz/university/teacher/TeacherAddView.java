@@ -1,21 +1,23 @@
-package pl.wsiz.university;
+package pl.wsiz.university.teacher;
+
+import pl.wsiz.university.user.User;
+import pl.wsiz.university.user.UserRepository;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class StudentAddView {
+public class TeacherAddView {
 
         private UserRepository userRepository;
 
-        public StudentAddView(UserRepository userRepository) {
+        public TeacherAddView(UserRepository userRepository) {
                 this.userRepository = userRepository;
         }
     public void initialize() {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("===== DODAWANIE NOWEGO STUDENTA ====");
-
+            System.out.println("===== DODAWANIE NOWEGO NAUCZYCIELA ====");
             System.out.print("Podaj imię:  ");
             String firstName = scanner.nextLine();
             System.out.print("Podaj nazwisko:  ");
@@ -31,11 +33,11 @@ public class StudentAddView {
             formatter = formatter.withLocale(Locale.ENGLISH);
             LocalDate date = LocalDate.parse(dateOfBirth, formatter);
 
-            System.out.print("Podaj nr albumu:  ");
-            Long albumNumber = scanner.nextLong();
+            System.out.print("Podaj stopień naukowy:  ");
+            String degree = scanner.nextLine();
 
-            User student = new Student(firstName, lastName, email, pwd, date, albumNumber);
+            User student = new Teacher(firstName, lastName, email, pwd, date, degree);
             userRepository.insert(student);
-            System.out.println("Student zostal dodany.");
+            System.out.println("Nauczyciel zostal dodany.");
     }
 }

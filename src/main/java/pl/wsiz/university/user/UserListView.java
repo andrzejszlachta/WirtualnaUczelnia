@@ -1,4 +1,4 @@
-package pl.wsiz.university;
+package pl.wsiz.university.user;
 
 import java.util.Comparator;
 import java.util.List;
@@ -29,7 +29,7 @@ public class UserListView {
         }
     }
 
-    String withSpaces(String text, int maxLength) {
+    public String withSpaces(String text, int maxLength) {
         return (maxLength > text.length()) ? text + " ".repeat(maxLength - text.length()) : text;
     }
 }

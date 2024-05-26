@@ -1,6 +1,7 @@
 package pl.wsiz.university;
 
 import org.junit.jupiter.api.Test;
+import pl.wsiz.university.administrator.Administrator;
 
 import java.time.LocalDate;
 

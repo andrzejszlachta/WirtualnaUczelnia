@@ -1,4 +1,4 @@
-package pl.wsiz.university;
+package pl.wsiz.university.administrator;
 
 public enum AdministratorMenuItem {
     USERS_LIST(1, "lista użytkowników"),
