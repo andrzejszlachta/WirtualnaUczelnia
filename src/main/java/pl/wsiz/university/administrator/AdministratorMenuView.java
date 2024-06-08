@@ -24,13 +24,30 @@ public class AdministratorMenuView {
             System.out.println("Co wybierasz? ");
             Scanner scanner = new Scanner(System.in);
             chosen = scanner.nextInt();
-            if (chosen == AdministratorMenuItem.USERS_LIST.getNr()) {
-                new UserListView(userRepository).initialize();
-            } else if (chosen == AdministratorMenuItem.NEW_STUDENT.getNr()) {
-                new StudentAddView(userRepository).initialize();
-            } else if (chosen == AdministratorMenuItem.NEW_TEACHER.getNr()) {
-                new TeacherAddView(userRepository).initialize();
+
+            AdministratorMenuItem chosenEnum = AdministratorMenuItem.convert(chosen);
+            switch (chosenEnum) {
+                case USERS_LIST:
+                    new UserListView(userRepository).initialize();
+                    break;
+                case NEW_STUDENT:
+                    new StudentAddView(userRepository).initialize();
+                    break;
+                case NEW_TEACHER:
+                    new TeacherAddView(userRepository).initialize();
+                case NEW_ADMINISTRATOR:
+                    new AdministratorAddView(userRepository).initialize();
+                    break;
             }
+//
+//            if (chosen == AdministratorMenuItem.USERS_LIST.getNr()) {
+//                new UserListView(userRepository).initialize();
+//            } else if (chosen == AdministratorMenuItem.NEW_STUDENT.getNr()) {
+//                new StudentAddView(userRepository).initialize();
+//            } else if (chosen == AdministratorMenuItem.NEW_TEACHER.getNr()) {
+//                new TeacherAddView(userRepository).initialize();
+//            }
+
         } while (chosen != AdministratorMenuItem.EXIT.getNr());
 
     }

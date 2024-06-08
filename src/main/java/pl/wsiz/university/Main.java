@@ -10,12 +10,16 @@ import pl.wsiz.university.user.User;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        List<Boolean> list = new ArrayList<>();
+
+
         Student student1 = new Student("Adam", "Nowak", "adam@mail.com", "adam123", LocalDate.of(1990, 12, 20), 95412);
         Teacher teacher1 = new Teacher("Iwona", "Nowak", "iwona@mail.com", "iwona@33", LocalDate.of(1992, 11, 10), "dr. inż.");
         Administrator administrator1 = new Administrator("Janusz", "Polak", "janusz@mail.com", "janusz", LocalDate.of(1993, 11, 13));
